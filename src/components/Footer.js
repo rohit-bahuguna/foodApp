@@ -37,8 +37,8 @@ const Footer = () => {
                            <div className="widget_menu">
                               <h3>Account</h3>
                               <ul>
-                                 <li><Link to="#">Account</Link></li>
-                                 <li><Link to="#">Checkout</Link></li>
+                                 <li><Link to="/admin_add_product">Add Product</Link></li>
+                                 <li><Link to="/admin_product_list">Product Add/Delete</Link></li>
                                  <li><Link to="/login">Login</Link></li>
                                  <li><Link to="/signup">Register</Link></li>
                                  <li><Link to="/productlist">Shopping</Link></li>

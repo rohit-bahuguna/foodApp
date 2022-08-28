@@ -26,9 +26,9 @@ const { id } = useParams();
 
     const [food , setFood] = useState(inittalValue)
 
-console.log(food)
+
   const addProductFn = async () => {
-   console.log(food)
+   
 
 
     if (

@@ -1,11 +1,10 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// toast.success("Food added successfully")
+
 
 const Admin_Add_Product = () => {
   
@@ -29,7 +28,7 @@ const Admin_Add_Product = () => {
 
   
       const response = await axios.post(url, food).catch((err) => console.log(err));
-      console.log(response)
+     
       toast.success("Food added successfully")
 
       setFood({

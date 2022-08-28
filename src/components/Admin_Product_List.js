@@ -1,8 +1,8 @@
 import axios from "axios";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { setProducts } from "../redux/actions/productActions";
 import { deleteProduct } from "../redux/actions/productActions";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,7 +13,7 @@ const Admin_Product_List = () => {
   const dispatch = useDispatch();
   
   const tempData = useSelector((state) => state.allProducts.products);
-  console.log("data from redux - ", tempData);
+ 
 
  
 
@@ -21,9 +21,7 @@ const Admin_Product_List = () => {
     fetch("https://foodapibybharat.herokuapp.com/product/getfood")
       .then((data) => data.json())
       .then((response) => {
-        // console.log(response);
-        // setData(response);
-        // trigger action with data - type and payload;
+       
         dispatch(setProducts(response));
       });
   };
@@ -32,22 +30,15 @@ const Admin_Product_List = () => {
     fetchProductsList();
   }, []);
 
-  const updateFn = async (id) => {
-    console.log("hit api for product update - PUT API");
-    const url = 'https://foodapibybharat.herokuapp.com/product/updatefood';
-
-  };
-
+ 
   const deleteFn = async (id) => {
-    console.log("hit api for product delete - DELETE API");
+
     const url = `https://foodapibybharat.herokuapp.com/product/deletefood/${id}`;
     const response = await axios.delete(url).then(()=>{toast.error("food item deleted")}).catch((err) => console.log(err))
 
-      console.log('--> deleted' , response)
-    
-     if(response){
+     
     dispatch(deleteProduct(id))
-   }
+   
   
   };
 

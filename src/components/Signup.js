@@ -16,10 +16,10 @@ const Signup = () => {
   const signUpData = useSelector((state) => state.signup);
 
 
-  console.log("----login data from selector -----", signUpData);
-  console.log(signUpData.signupStatus)
+  
+ 
   if (signUpData.signupStatus) {
-       console.log(signUpData.signupStatus)
+       
     setTimeout(() => {
 
         navigate("/login");
@@ -33,13 +33,13 @@ const Signup = () => {
     let name = inputRef1.current.value;
     let password = inputRef2.current.value;
     let email = inputRef3.current.value;
-    console.log(typeof name, typeof email, typeof password);
+  
     let obj = {
       name: name,
       email: email,
       password: password
     };
-    console.log("useername and password", name, password, email);
+   
 
     // call api with name and password
     const url = "https://foodapibybharat.herokuapp.com/user/login";
@@ -51,13 +51,9 @@ const Signup = () => {
     // if successfull, call dispatch
     if (response !== undefined) {
       dispatch(usersignup(response.data));
-      console.log(response.data);
+      
       toast.success("Account Created Successfully")
-    } else {
-      // console.log(name, password);
-    }
-    // else
-    // show error
+    } 
   };
   return (
     <>

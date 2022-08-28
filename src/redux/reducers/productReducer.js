@@ -12,11 +12,11 @@ export const productReducer = (state = initialState, action) => {
         
         case actionTypes.DELETEPRODUCT:
             let items = state.products
-            console.log(items)
+           
             let newItem = items.filter((value , index)=> {
                 return value._id !== payload ;
             })
-            console.log(newItem , "check");
+          
             return {products :[...newItem]}
 
         default:

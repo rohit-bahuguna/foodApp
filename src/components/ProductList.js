@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { setProducts } from "../redux/actions/productActions";
 
 
@@ -16,7 +16,7 @@ const ProductList = () => {
     fetch("https://foodapibybharat.herokuapp.com/product/getfood")
       .then((data) => data.json())
       .then((response) => {
-       console.log(response);
+       
        
         dispatch(setProducts(response));
       });
@@ -34,7 +34,7 @@ const ProductList = () => {
       <div className="container">
          <div className="heading_container heading_center">
             <h2>
-               Our <span>products</span>
+               Our <span>Menu</span>
             </h2>
          </div>
          <div className="row">

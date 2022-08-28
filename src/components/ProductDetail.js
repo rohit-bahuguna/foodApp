@@ -9,19 +9,15 @@ import "react-toastify/dist/ReactToastify.css";
 const ProductDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  // console.log("id from list page - ", id);
+ 
 
   let tempProduct = {};
-
-  tempProduct = useSelector((state) => state.selectedProduct);
-  console.log("---data from selected product store - ", tempProduct);
-
+tempProduct = useSelector((state) => state.selectedProduct);
+  
   const loginData = useSelector((state) => state.login);
-  // console.log("----login data from selector -----", loginData.loginStatus);
-
+  
   const cartData = useSelector((state) => state.cart);
-  // console.log('----login data from selector for cart -----', cartData);
-
+  
   const fetchProductDetail = async () => {
     const url = "https://foodapibybharat.herokuapp.com/product/getafood/" + id;
     const response = await axios.get(url);
@@ -51,7 +47,7 @@ const ProductDetail = () => {
 
       };
 
-      console.log("product", orders);
+     
 
       const response = await axios
         .post(url, orders, {
@@ -60,48 +56,48 @@ const ProductDetail = () => {
           },
         })
         .catch((err) => console.log("erroe----->", err));
-       // toast.success("product added to cart")
-      console.log("product added to cart" , response);
+        toast.success("product added to cart")
+     
     }
   };
 
   return (
     <>
       <ToastContainer/>
-      <div className="row bg-info bg-opacity-50">
-        <div className="col-12">Product Detail</div>
-      </div>
-      <div className="row bg-info bg-opacity-10">
-        <div className="col-4">
-          <img src={tempProduct.image} className="img-fluid image" />
-        </div>
-        <div className="col-4">
-          <h2>{tempProduct.title || " "}</h2>
-          <h2>{tempProduct.price || " "}</h2>
-          <h3>{tempProduct.category || " "}</h3>
-          <p>{tempProduct.description || " "}</p>
-        </div>
-        <div className="col-4">
-          <div className="col-12">
-            {cartData.products
-              .map((temp) => temp._id)
-              .indexOf(tempProduct._id) !== -1 ? (
-              <Link to="/cart">Go to Cart</Link>
-            ) : (
-              <button className="cart" onClick={addtoCart}>
+     
+<section class="product_section layout_padding">
+        <div className="container d-flex flex-lg-row justify-around flex-md-row">
+           <div class="container flex-grow-1">
+      <div class="row ">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+               <div class="box">
+                  
+                  <div class="img-box">
+                       <img src={tempProduct.image} alt="" />
+                      <div></div>
+                  </div>
+                  <div class="detail-box">
+                     <h5>
+                        {tempProduct.name}
+                     </h5>
+                     <h6>
+                        {tempProduct.price}
+                     </h6>
+                  </div>
+         </div>
+                {cartData.products.map((temp) => temp._id).indexOf(tempProduct._id) !== -1 ?
+                   <Link to="/cart"><button type="button" className="btn btn-outline-danger" >Go to Cart</button></Link>
+             : 
+              <button type="button" className="btn btn-outline-danger" onClick={addtoCart}>
                 Add to Cart
               </button>
-            )}
-          </div>
-          <br />
-          <div className="row">
-            <div className="col-12">
-              <button>Add to Wishlist</button>
+            }
             </div>
-          </div>
-          
+        
+            </div>
+            </div>
         </div>
-      </div>
+        </section>
 
        
     </>
@@ -109,5 +105,4 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
-
 

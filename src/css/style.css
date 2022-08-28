@@ -152,7 +152,7 @@ a:focus {
     padding: 5px 20px;
     color: #131313;
     text-align: center;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
     border-radius: 5px;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
@@ -338,7 +338,7 @@ a:focus {
 }
 
 .slider_bg_box {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -997,7 +997,7 @@ footer {
 .widget_menu h3 {
     font-size: 18px;
     font-weight: 700;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
     letter-spacing: 0.2px;
     margin-bottom: 25px;
 }

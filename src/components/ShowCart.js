@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { useSelector , useDispatch} from "react-redux";
 import { removeFromCart } from "../redux/actions/cartActions";
@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 const ShowCart = (props) => {
   
 
-  const { name, category, description, image, id , quantity , price} = props.product;
+  const { name,  image, id  , price} = props.product;
   const loginData = useSelector((state) => state.login);
  
     
@@ -25,7 +25,7 @@ const ShowCart = (props) => {
       },
     }).catch((error) => console.log(error.massage))
 
-    console.log("deleted" , response.data);
+    
     if(response.data !== null){
       dispatch(removeFromCart(response.data._id))
     }
@@ -94,15 +94,4 @@ const ShowCart = (props) => {
 
 export default ShowCart;
 
-/* 
 
-<div className="row">
-            <div className="col-6">
-              <button className="col-6 ">+</button>
-            </div>
-            <div className="col-6">
-              <button className="col-6 ">-</button>
-            </div>
-          </div>
-
-*/

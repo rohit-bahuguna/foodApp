@@ -7,7 +7,7 @@ const Wishlist = () => {
   const loginData = useSelector((state) => state.login);
 
   useEffect(() => {
-      console.log('----login data from selector -----', loginData);
+     
       if(!loginData.loginStatus) {
           navigate('/');
       }

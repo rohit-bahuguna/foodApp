@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { clearCart } from "../redux/actions/cartActions";
@@ -15,8 +15,7 @@ const Cart = () => {
   const dispatch = useDispatch();
 const loginData = useSelector((state) => state.login);
   const cartData = useSelector((state) => state.cart.products);
- //console.log(cartData[0]._id)
-  console.log(cartData, "cart");
+ 
  
   const orderNow = async () => {
     if (loginData.loginStatus && cartData.length !== 0) {
@@ -54,7 +53,7 @@ let price = 0
 
       
         {cartData && cartData.map((item , index) => {
-               // console.log(item)
+              
           
          
           price += item.price
@@ -77,7 +76,7 @@ let price = 0
                     <h5> Secured Packaging Fee <span> : 0</span></h5>
                     </div>
               
-                  <div class="detail-box">
+                  <div className="detail-box">
                      <h5>
                         Total Amount
                      </h5>
@@ -85,11 +84,11 @@ let price = 0
                         {price}
                      </h6>
                   </div>
-                   <div class="options d-flex flex-row justify-content-around">
-                        <Link to="/productlist"><button   type="button" class="btn btn-outline-danger">
+                   <div className="options d-flex flex-row justify-content-around">
+                        <Link to="/productlist"><button   type="button" className="btn btn-outline-danger">
                            Shop More
                         </button></Link>
-                        <button   type="button" onClick={orderNow} class="btn btn-outline-danger">
+                        <button   type="button" onClick={orderNow} className="btn btn-outline-danger">
                            Order Now
                         </button>
                      </div>
